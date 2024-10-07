@@ -1,31 +1,31 @@
 #include <stdio.h>
 
-// Converts Celsius to Fahrenheit
+// Converts from Celsius to Fahrenheit
 float celsius_to_fahrenheit(float celsius) {
     return (9.0 / 5.0) * celsius + 32;
 }
 
-// Converts Fahrenheit to Celsius
+// Converts from Fahrenheit to Celsius
 float fahrenheit_to_celsius(float fahrenheit) {
     return (5.0 / 9.0) * (fahrenheit - 32);
 }
 
-// Converts Celsius to Kelvin
+// Converts from Celsius to Kelvin
 float celsius_to_kelvin(float celsius) {
     return celsius + 273.15;
 }
 
-// Converts Kelvin to Celsius
+// Converts from Kelvin to Celsius
 float kelvin_to_celsius(float kelvin) {
     return kelvin - 273.15;
 }
 
-// Converts Fahrenheit to Kelvin
+// Converts from Fahrenheit to Kelvin
 float fahrenheit_to_kelvin(float fahrenheit) {
     return celsius_to_kelvin(fahrenheit_to_celsius(fahrenheit));
 }
 
-// Converts Kelvin to Fahrenheit
+// Converts from Kelvin to Fahrenheit
 float kelvin_to_fahrenheit(float kelvin) {
     return celsius_to_fahrenheit(kelvin_to_celsius(kelvin));
 }
@@ -56,7 +56,7 @@ int main() {
 
     // Obtain temperature type in the form (F, C, K)
     do {
-        printf("Enter the temperature type (F, C, K): ");
+        printf("Enter the temperature type in the form (F, C, K): ");
         scanf(" %c", &type);
     } while (type != 'F' && type != 'C' && type != 'K');
 
@@ -65,7 +65,7 @@ int main() {
         printf("Enter the temperature: ");
         scanf("%f", &temp);
         if (type == 'K' && temp < 0) {
-            printf("Error: Kelvin temperature cannot be below 0.\n");
+            printf("Error: Kelvin temperature cannot be negative 0.\n");
         }
     } while (type == 'K' && temp < 0);
 
@@ -74,7 +74,7 @@ int main() {
         printf("Convert to (F, C, K): ");
         scanf(" %c", &target);
         if (target == type) {
-            printf("Error: Cannot convert between the same temperature type.\n");
+            printf("Error: Cannot convert between two temperatures of the same type.\n");
         }
     } while ((target != 'F' && target != 'C' && target != 'K') || target == type);
 
